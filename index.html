@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokémon Memory Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-controls">
+    <h1>Pokémon Memory Game</h1>
+    <div class="status">
+      <p>Clicks: <span id="clicks">0</span></p>
+      <p>Pairs Left: <span id="pairs-left">0</span></p>
+      <p>Pairs Matched: <span id="matched">0</span></p>
+      <p>Total Pairs: <span id="total-pairs">0</span></p>
+      <p>Time: <span id="timer">0</span>s</p>
+    </div>
+    <div class="buttons">
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium" selected>Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+      <button id="start">Start Game</button>
+      <button id="reset">Reset Game</button>
+      <button id="power-up">Power-Up</button>
+      <button id="toggle-theme">Toggle Theme</button>
+    </div>
+  </div>
+
+  <div class="game-board" id="game-board"></div>
+
+  <div class="overlay" id="overlay"></div>
+
+  <script src="index.js"></script>
+</body>
+</html>

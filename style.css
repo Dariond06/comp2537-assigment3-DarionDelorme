@@ -1,0 +1,129 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f8f8;
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s, color 0.3s;
+  color: #222;
+}
+
+body.dark {
+  background: #1a1a1a;
+  color: #eee;
+}
+
+.game-controls {
+  text-align: center;
+  padding: 1rem;
+}
+
+.status p {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.buttons button,
+.buttons select {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#game-board {
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+body.easy #game-board {
+  grid-template-columns: repeat(3, 100px);
+}
+
+body.medium #game-board {
+  grid-template-columns: repeat(4, 100px);
+}
+
+body.hard #game-board {
+  grid-template-columns: repeat(6, 100px);
+}
+
+.card {
+  perspective: 1000px;
+  width: 100px;
+  height: 140px;
+  position: relative;
+  cursor: pointer;
+}
+
+.card .inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card.flip .inner,
+.card.matched .inner {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.front {
+  transform: rotateY(180deg);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.front img {
+  width: 90%;
+  height: auto;
+  object-fit: contain;
+}
+
+.back {
+  background: #444;
+  background-image: url('back.webp');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+body.dark .front {
+  background: white;
+  color: black;
+}
+
+body.dark .back {
+  filter: brightness(0.8);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  z-index: 10;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+}
